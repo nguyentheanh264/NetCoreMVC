@@ -3,14 +3,16 @@ using System;
 using DemoMVC.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DemoMVC.Migrations
 {
     [DbContext(typeof(ApplycationContext))]
-    partial class ApplycationContextModelSnapshot : ModelSnapshot
+    [Migration("20210929010625_Add_Column_Movie_Email")]
+    partial class Add_Column_Movie_Email
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,9 +24,6 @@ namespace DemoMVC.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Email")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Genre")
                         .HasColumnType("decimal(18, 2)");
 
@@ -34,9 +33,6 @@ namespace DemoMVC.Migrations
 
                     b.Property<decimal>("Price")
                         .HasMaxLength(5)
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Rating")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("ReleaseDate")
